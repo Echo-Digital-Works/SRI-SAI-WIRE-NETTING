@@ -77,7 +77,7 @@
     <div id="google_translate_element" style="display: none;"></div>
     
     <!-- Custom Language Switcher -->
-    <div class="floating-translate-widget">
+    <div class="floating-translate-widget notranslate">
       <select id="customLangSelect" onchange="switchLanguage(this.value)">
         <option value="en">English</option>
         <option value="ta">தமிழ்</option>
@@ -98,15 +98,24 @@
       function switchLanguage(lang) {
         if (lang === 'ta') {
           document.cookie = "googtrans=/en/ta; path=/";
+          document.cookie = "googtrans=/en/ta; path=/; domain=" + window.location.hostname;
         } else {
           // Clear translation cookie to restore original language
-          document.cookie = "googtrans=/en/en; path=/";
-          document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-          
-          // Clear cookie for parent domain as well just in case
           const domain = window.location.hostname;
+          document.cookie = "googtrans=/en/en; path=/";
+          
+          // Clear all possible combinations
+          document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
           document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${domain};`;
           document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.${domain};`;
+          
+          // Clear root domain if on www
+          if (domain.startsWith("www.")) {
+            const rootDomain = domain.substring(3); // keeps the dot: .srisaiwirenetting.in
+            document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${rootDomain};`;
+            const nakedDomain = domain.substring(4); // srisaiwirenetting.in
+            document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${nakedDomain};`;
+          }
         }
         window.location.reload();
       }
