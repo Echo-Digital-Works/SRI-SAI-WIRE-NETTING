@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.srisaiwirenetting.in/sitemap.xml
