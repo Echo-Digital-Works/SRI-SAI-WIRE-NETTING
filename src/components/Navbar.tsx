@@ -59,8 +59,8 @@ export const Navbar: React.FC = () => {
               <img src="/images/logo.png" alt={COMPANY_DATA.name} className="brand-logo-img" />
             </div>
             <div className="brand-text-block">
-              <span className="brand-title">{COMPANY_DATA.name}</span>
-              <span className="brand-subtitle">{COMPANY_DATA.badge}</span>
+              <span className="brand-title" translate="no">{COMPANY_DATA.name}</span>
+              <span className="brand-subtitle" translate="no">{COMPANY_DATA.badge}</span>
             </div>
           </a>
 
