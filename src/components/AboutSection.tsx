@@ -2,8 +2,12 @@ import React from "react";
 import { COMPANY_DATA } from "../data/company";
 // Import removed as it's no longer used
 import { User, MapPin, Phone, MessageCircle, ShieldCheck } from "lucide-react";
+import { useLanguage } from "../hooks/useLanguage";
 
 export const AboutSection: React.FC = () => {
+  const lang = useLanguage();
+  const founder = lang === "ta" ? COMPANY_DATA.founderTa : COMPANY_DATA.founder;
+  const location = lang === "ta" ? COMPANY_DATA.locationTa : COMPANY_DATA.location;
   return (
     <section id="about" className="about-split-section section-space">
       <div className="container">
@@ -40,10 +44,10 @@ export const AboutSection: React.FC = () => {
               </div>
               <div className="founder-details">
                 <span className="founder-label">Founder / Owner</span>
-                <h3 className="founder-name">{COMPANY_DATA.founder}</h3>
+                <h3 className="founder-name" translate="no">{founder}</h3>
                 <div className="founder-meta-row">
                   <span className="founder-location">
-                    <MapPin size={14} /> {COMPANY_DATA.location}, Tamil Nadu
+                    <MapPin size={14} />{" "}<span translate="no">{location}</span>{" "}, Tamil Nadu
                   </span>
                   <a href={`tel:${COMPANY_DATA.phone}`} className="founder-phone-link">
                     <Phone size={14} /> {COMPANY_DATA.phone}
@@ -54,7 +58,7 @@ export const AboutSection: React.FC = () => {
 
             {/* Direct & Authentic Company Summary */}
             <p className="about-lead-paragraph">
-              <strong>{COMPANY_DATA.name}</strong> is led by <strong>{COMPANY_DATA.founder}</strong> based in <strong>{COMPANY_DATA.location}</strong>. We deliver professional Kambi Veli and boundary security using premium Tata & Micon GI wire netting, heavy-duty stone pillars, and 6, 7 & 8 ft precast concrete RCC posts for agricultural farmlands, open plots, and commercial properties across all districts of Tamil Nadu.
+              <strong translate="no">{COMPANY_DATA.name}</strong>{" "}is led by{" "}<strong translate="no">{founder}</strong>{" "}based in{" "}<strong translate="no">{location}</strong>. We deliver professional Kambi Veli and boundary security using premium Tata &amp; Micon GI wire netting, heavy-duty stone pillars, and 6, 7 &amp; 8 ft precast concrete RCC posts for agricultural farmlands, open plots, and commercial properties across all districts of Tamil Nadu.
             </p>
 
             {/* Work Capabilities Summary */}
@@ -85,7 +89,7 @@ export const AboutSection: React.FC = () => {
               </a>
               <a href={`tel:${COMPANY_DATA.phone}`} className="btn btn-primary">
                 <Phone size={16} />
-                <span>Call {COMPANY_DATA.founder}</span>
+                <span>அழைப்பு{" "}<span translate="no">{founder}</span></span>
               </a>
             </div>
           </div>

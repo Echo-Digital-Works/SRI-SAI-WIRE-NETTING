@@ -7,12 +7,15 @@ export interface CompanyConfig {
   displayPhone: string;
   whatsapp: string;
   email: string;
+  founder: string;
+  founderTa: string;
   address: string;
+  addressTa: string;
   location: string;
+  locationTa: string;
   state: string;
   workingHours: string;
   establishedYear: string;
-  founder: string;
   stats: {
     yearsExperience: string;
     projectsCompleted: string;
@@ -37,11 +40,14 @@ export const COMPANY_DATA: CompanyConfig = {
   whatsapp: "919843932637",
   email: "info@srisaiwirenetting.com",
   address: "Therpathai, Poolavadi Road, Dharapuram, Tamil Nadu, India",
+  addressTa: "தேர்பாதை, பூளவாடி சாலை, தாராபுரம், தமிழ்நாடு",
   location: "Therpathai, Poolavadi Road, Dharapuram",
+  locationTa: "தேர்பாதை, பூளவாடி சாலை, தாராபுரம்",
   state: "Tamil Nadu, India",
   workingHours: "Mon – Sat: 8:00 AM – 7:00 PM",
   establishedYear: "2014",
   founder: "Mahendran P",
+  founderTa: "மகேந்திரன்.ப",
   stats: {
     yearsExperience: "12+",
     projectsCompleted: "600+",
