@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import { COMPANY_DATA } from "../data/company";
 import { CONTACT_BANNER_IMAGE } from "../data/fencingImages";
 import { Phone, MessageCircle, MapPin, Send, CheckCircle2, ShieldAlert } from "lucide-react";
+import { useLanguage } from "../hooks/useLanguage";
 
 export const ContactSection: React.FC = () => {
+  const lang = useLanguage();
+  const location = lang === "ta" ? COMPANY_DATA.locationTa : COMPANY_DATA.location;
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -106,7 +109,7 @@ export const ContactSection: React.FC = () => {
                 </div>
                 <div className="pill-text-wrap">
                   <span className="pill-label">Location / Service Area</span>
-                  <strong className="pill-value">{COMPANY_DATA.location}, Tamil Nadu</strong>
+                  <strong className="pill-value" translate="no">{location}</strong><strong className="pill-value">, Tamil Nadu</strong>
                 </div>
               </div>
             </div>
